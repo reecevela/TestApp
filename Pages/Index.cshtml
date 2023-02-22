@@ -2,9 +2,26 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    int length = 20;
+    int[] fibs = new int[length];
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Fibonnaci Time</p>
+    <ul>
+    @for (int i = 0; i < length; i++)
+    {
+        if (i == 0 || i == 1)
+            {
+            fibs[i] = 1;
+            }
+
+        else
+            {
+                fibs[i] = fibs[i - 1] + fibs[i - 2];
+            }
+        <li>@fibs[i]</li>
+    }
+    </ul>
 </div>
